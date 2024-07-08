@@ -9,7 +9,7 @@ const Selectors = () => {
     const indicator = useSelector(selectIndicator);
 
     useEffect(() => {
-        dispatch(fetchValues())
+        dispatch(fetchValues({region: region, indicator: indicator}))
     })
 
     return <>

@@ -3,9 +3,9 @@ import axios from 'axios';
 
 export const fetchValues = createAsyncThunk(
     'data/fetchValues',
-    async() => {
-        const response = await axios.get(`https://api.worldbank.org/v2/country/${state.region.toLowerCase()}/indicator/${state.indicator}?format=jsonp&amp;page=1`)
-        return response.data
+    async(data) => {
+        const response = await axios.get(`https://api.worldbank.org/v2/country/${data.region.toLowerCase()}/indicator/${data.indicator}?format=jsonp&amp;page=1`)
+        return response.data[1]
     }
 )
 
@@ -31,7 +31,6 @@ const DataReducer = createSlice({
             state.datas = action.payload;
             state.status = 'idle';
             state.loadingmsg = '';
-            console.log(action)
         }),
         builder.addCase(fetchValues.pending, (state, action) => {
             state.status = 'loading';

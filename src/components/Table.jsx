@@ -12,6 +12,19 @@ const Table = () => {
             :
             status === 'rejected' && <p>{loadingmsg}</p>
         }
+        <table>
+            <thead>
+                <tr><td>Year</td><td>Value</td></tr>
+            </thead>
+            <tbody>
+                {
+                    datas !== undefined &&
+                        datas > 0 ? datas.map((data) => <tr><td>{data.date}</td> <td>{data.value}</td></tr>)
+                        :
+                        <tr><td>No Value</td> <td>No Value</td></tr>
+                }
+            </tbody>
+        </table>
     </>
 }
 
