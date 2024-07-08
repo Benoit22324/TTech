@@ -19,9 +19,9 @@ const Table = () => {
             <tbody>
                 {
                     datas !== undefined &&
-                        datas > 0 ? datas.map((data) => <tr><td>{data.date}</td> <td>{data.value}</td></tr>)
-                        :
-                        <tr><td>No Value</td> <td>No Value</td></tr>
+                    datas.length > 0 ? datas.map((data, index) => datas.value !== null && <tr key={index}><td>{data.date}</td> <td>${data.value}</td></tr>)
+                    :
+                    <tr><td>No Value</td> <td>No Value</td></tr>
                 }
             </tbody>
         </table>
